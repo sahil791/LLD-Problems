@@ -1,2 +1,26 @@
+# Ignore IntelliJ IDEA project files
+.idea/
 *.iml
 out/
+build/
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore libraries
+lib/
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore user-specific files
+*.user
+*.orig
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
