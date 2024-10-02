@@ -7,25 +7,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
-        StandardStack<Integer> stack = new StandardStack<>();
+        //StandardStack<Integer> stack = new StandardStack<>();
+        LockFreeStack<Integer> stack = new LockFreeStack<>();
         Random random = new Random(1000);
-//        stack.push(10);
-//        stack.push(11);
-//        stack.push(12);
 
-//        while(!stack.isEmpty()) {
-//            System.out.println(stack.pop());
-//        }
-//
-//        StandardStack<String> chStack = new StandardStack<>();
-//        chStack.push("sahil");
-//        chStack.push("rahul");
-//        chStack.push("visa");
-//
-//        while(!stack.isEmpty()) {
-//            System.out.println(stack.pop());
-//        }
-        long startTime = System.currentTimeMillis();
         ExecutorService executor = Executors.newFixedThreadPool(8);
         executor.execute(() -> {
             try {
@@ -50,7 +35,7 @@ public class Client {
 
         executor.execute(() -> {
             try {
-                while (!Thread.currentThread().isInterrupted() && !stack.isEmpty()) {
+                while (!Thread.currentThread().isInterrupted()) {
                     System.out.println(stack.pop());
                 }
             } catch (Exception e) {
@@ -63,8 +48,7 @@ public class Client {
             executor.shutdownNow();
         }
 
-        long endTime = System.currentTimeMillis();
-
-        System.out.println(String.format("%,d operations performed in 10 secs",stack.counter));
+//        System.out.println(String.format("%,d operations performed in 10 secs",stack.counter));
+        System.out.println(String.format("%,d operations performed in 5 secs",stack.counter.get()));
     }
 }
