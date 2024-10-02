@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.LockSupport;
 
-public class LockFreeStack<T> {
+public class LockFreeStack<T> implements Stack<T>{
     AtomicReference<StackNode<T>> head;
     AtomicLong counter = new AtomicLong();
     public LockFreeStack() {
@@ -46,4 +46,9 @@ public class LockFreeStack<T> {
         counter.incrementAndGet();
         return currHead != null ? currHead.getVal() : null;
     }
+
+    public long counter() {
+        return counter.get();
+    }
+
 }

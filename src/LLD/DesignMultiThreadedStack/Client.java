@@ -7,8 +7,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
-        //StandardStack<Integer> stack = new StandardStack<>();
-        LockFreeStack<Integer> stack = new LockFreeStack<>();
+        /**
+         * Standard stack performs approx 19 million operations in 5 secs
+         * Lock Free Stack performs approx 24-27 million operations in 5 secs
+         *      | depends on the tuning on backoff factor
+         */
+//        Stack<Integer> stack = new StandardStack<>();
+        Stack<Integer> stack = new LockFreeStack<>();
         Random random = new Random(1000);
 
         ExecutorService executor = Executors.newFixedThreadPool(8);
@@ -48,7 +53,6 @@ public class Client {
             executor.shutdownNow();
         }
 
-//        System.out.println(String.format("%,d operations performed in 10 secs",stack.counter));
-        System.out.println(String.format("%,d operations performed in 5 secs",stack.counter.get()));
+        System.out.println(String.format("%,d operations performed in 5 secs",stack.counter()));
     }
 }

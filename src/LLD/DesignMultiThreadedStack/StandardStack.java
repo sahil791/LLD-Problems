@@ -1,6 +1,6 @@
 package LLD.DesignMultiThreadedStack;
 
-public class StandardStack<T> {
+public class StandardStack<T> implements Stack<T>{
     StackNode<T> head;
     volatile long counter = 0L;
 
@@ -31,5 +31,9 @@ public class StandardStack<T> {
 
     public boolean isEmpty() {
         return head == null;
+    }
+
+    public long counter() {
+        return this.counter;
     }
 }
