@@ -1,8 +1,7 @@
 package LLD.DesignParkingLot.Spot;
 
-import LLD.DesignParkingLot.ParkingSlotType;
+import LLD.DesignParkingLot.Enums.ParkingSlotType;
 import LLD.DesignParkingLot.Vehicle;
-import LLD.DesignParkingLot.VehicleType;
 
 public abstract class ParkingSpot {
     private String id;

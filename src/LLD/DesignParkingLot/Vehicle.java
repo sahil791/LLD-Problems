@@ -1,8 +1,13 @@
 package LLD.DesignParkingLot;
 
+import LLD.DesignParkingLot.Enums.ParkingTicketStatus;
+import LLD.DesignParkingLot.Enums.VehicleType;
+
 public class Vehicle {
     private String number;
     VehicleType vehicleType;
+
+    ParkingTicket ticket;
 
     public Vehicle(String number, VehicleType vehicleType) {
         this.number = number;
@@ -23,5 +28,9 @@ public class Vehicle {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+
+    public void assignTicket() {
+        this.ticket = new ParkingTicket();
     }
 }

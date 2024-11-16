@@ -1,4 +1,4 @@
-package LLD.DesignParkingLot;
+package LLD.DesignParkingLot.Enums;
 
 public enum ParkingSlotType {
     HANDICAPPED,
