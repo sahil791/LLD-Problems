@@ -8,7 +8,7 @@ public class AirlineReservation {
     // Database credentials
     private static final String URL = "jdbc:mysql://localhost:3306/mysql";
     private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String PASSWORD = "admin1234";
     
     public static Connection getConnection() {
         Connection connection = null;
@@ -45,7 +45,7 @@ public class AirlineReservation {
                 connection.setAutoCommit(false);  // Start transaction
                 
                 // Find first available seat
-                String selectQuery = "SELECT seat_id, seat_number FROM airline.seats WHERE user_id IS NULL ORDER BY seat_number LIMIT 1 FOR UPDATE SKIP LOCKED";
+                String selectQuery = "SELECT seat_id, seat_number FROM airline.seats WHERE user_id IS NULL ORDER BY seat_number LIMIT 1 FOR UPDATE";
                 selectStmt = connection.prepareStatement(selectQuery);
                 ResultSet rs = selectStmt.executeQuery();
                 
